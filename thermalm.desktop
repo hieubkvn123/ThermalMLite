@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[en_SG]=gnome-panel-launcher
+Name[en_SG]=ThermalM
+Exec=/home/lattepanda/run.sh
+Name=ThermalM
+Icon=/home/lattepanda/thermalm.jpeg
+

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/src/seekware-simple.c
+stdio.h
+-
+stdint.h
+-
+stdbool.h
+-
+stdlib.h
+-
+time.h
+-
+string.h
+-
+signal.h
+-
+math.h
+-
+time.h
+-
+windows.h
+-
+winnt.h
+-
+sys/time.h
+-
+seekware/seekware.h
+-
+

@@ -1,0 +1,7 @@
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/CMakeFiles/install/strip.dir
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/CMakeFiles/edit_cache.dir
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/CMakeFiles/seekware-simple.dir
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/CMakeFiles/list_install_components.dir
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/CMakeFiles/install/local.dir
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/CMakeFiles/rebuild_cache.dir
+/home/lattepanda/Desktop/Seekware_SDK_3.4.0.5/examples/seekware-simple/CMakeFiles/install.dir

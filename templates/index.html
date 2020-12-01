@@ -1,0 +1,158 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">-->
+    <link rel="stylesheet" href="/static/css/google_fonts.css">
+
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <!--<link rel="stylesheet" href="/static/css/bootstrapcdn.css">-->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!--<link rel="stylesheet" href="/static/css/animation.css">-->
+
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="/static/css/cloudfare_fonts.css">
+
+    <link rel="stylesheet" href="/static/css/snackbar.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <script src="/static/js/jquery.js"></script>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
+    <script src="/static/js/popper_.js"></script>
+
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+    <script src="/static/js/bootstrap.js"></script>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="/static/js/cloudfare_jquery.js"></script>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>-->
+    <script src="/static/js/chart.js"></script>
+
+    <title>Thermal M Dashboard</title>
+    <link rel="icon" type="image/gif" href="/static/img/11.11.tech.png" />
+
+  </head>
+  <body style='background-color: #121212'>
+
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <div class="p-4 pt-5">
+          <a href="https://11-technology.io/fever-detection/" target='_blank' class="img logo rounded-circle mb-5" style="background-image: url(/static/img/thermalm.jpeg);"></a>
+          <ul class="list-unstyled components mb-5" >
+            <li id = "people-count"><span class='translate'>Number of people</span> : <span id='counter'></span></li>
+            <li id = "people-count-instore"><span class='translate'>Number of people in-store</span> : <span id='instore'></span></li>
+            <li id = "average-amb"><span class='translate'>Surrounding temperature</span> : <span id='aveamb'></span></li>
+            <br><br>
+            <li>
+              <p id='general-mgmt'><span id='arrow-general-mgmt'>&#9660</span>&nbsp<span class='translate'>Live View</span></p>
+              <ul id = 'general-mgmt-dropdown' style='list-style-type: none;padding-left: 5px'>
+                <li>
+                  <a id="camera_view"><span class='translate'>Camera View</span></a>
+                </li>
+                <!--So if a staff is an admin-->
+                <!--He/She has the basic functions of a staff-->
+                <!--Plus approving released rooms-->
+                <li>
+                    <a id="incident_log"><span class='translate'>Incident Log</span></a>
+                </li>
+              </ul>
+            </li>
+            
+            <li style='margin-top: 10px'>
+              <p id = 'settings-mgmt'><span id='arrow-settings-mgmt'>&#9654</span>&nbsp<span class='translate'>Settings</span></p>
+              <ul id='settings-mgmt-dropdown' style="list-style-type: none;padding-left: 5px; display: none">
+                <li>
+                    <a id="metric_setting"><span id="metric_arrow">&#9654</span>&nbsp<span class='translate'>Metric Settings</span></a>
+                    <ul id='setting-metric-sub-menu' style="display: none;list-style-type: none;padding-left: 10px">
+                      <li id='set-celcius' class='translate'>Celcius</li>
+                      <li id='set-fahrenheit' class='translate'>Fahrenheit</li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="threshold_setting"><span id="threshold_arrow">&#9654</span>&nbsp<span class='translate'>Temperature Threshold</span></a>
+                    <ul id='setting-threshold-sub-menu' style="display: none;list-style-type: none;padding-left: 10px">
+                      <!--<input id='temperature-threshold-input' size="2"/>-->
+                      <select id='temperature-threshold-input' class='minimal'>
+                        <option value="36.5">36.5</option> <!--For testing purpose only-->
+                        <option value="37">37</option>
+                        <option value="37.5" selected>37.5</option>
+                        <option value="38">38</option>
+                        <option value="38.5">38.5</option>
+                      </select>
+                    </ul>
+                </li>
+              </ul>
+            </li>
+            <li id='download_data_li'><a download='/static/data.csv' id="download_data"><span class='translate'>Download Data</span></a></li>
+
+            <li id='restart_server'><a><span class='translate'>Shut Down</span></a></li>
+            <li id='reboot'><a><span class='translate'>Reboot</span></a></li>
+          </ul>
+        </div>
+      </nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+        <h3 class="mb-4" id='content-header'><span class='translate'>Welcome to Thermal M</span></h3>
+        <div id='content_'>
+          <h5 id="time_header_" style = "float:right;color:red">HH:MM - MM/DD/YYYY</h5>
+            <!--<img src="doggo.jpeg"  id="main" alt="">-->
+          <table style='width : 100%;table-layout: fixed' border=2 id='main-table'>
+            <tr>
+              <td colspan ='6'>
+                <div class="box" style="display:grid">
+                    <span class='horizontal-span'></span>
+                    <span style='border-left: 3px solid #50dfdb' class='vertical-span' id='vertical_1'></span>
+                    <span class='horizontal-span'></span>
+                    <span style='border-right: 3px solid #50dfdb' class='vertical-span' id='vertical_2'></span>
+                    <div class="content">
+                      <img id="camera_video" class="center" src="{{ url_for('video_feed') }}" style='width: 100%;height:100%'>  
+                    </div>
+                </div>
+              </td>
+            </tr>
+            <tr id='double-view-incidents-region'>
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-1'/><p class='incident-details' id='details-1'></p></td>
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-2'/><p class='incident-details' id='details-2'></p></td>
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-3'/><p class='incident-details' id='details-3'></p></td>
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-4'/><p class='incident-details' id='details-4'></p></td>
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-5'/><p class='incident-details' id='details-5'></p></td>
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-6'/><p class='incident-details' id='details-6'></p></td>
+              <!--
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-7'/><p id='details-7'></p></td>
+              <td><img src='/static/img/thermalm.jpeg' class='incident-img' id='double-view-img-8'/><p id='details-8'></p></td>
+            -->
+            </tr>
+          </table>
+
+          <div id="chart-region">
+            <canvas id="amb-temp-list" class="chart"></canvas>
+            <canvas id="people-per-hour-list" class="chart"></canvas>
+          </div>
+
+          <ul id='incident_list'>
+            
+          </ul>
+        </div>
+      </div>
+      <div id="snackbar">...</div>
+    </div>
+
+    <!--JQuery and Bootstrap -->
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+
+    <!--Custom js script -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/utils.js"></script>
+  </body>
+</html>

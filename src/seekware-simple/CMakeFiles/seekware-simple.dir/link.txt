@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/seekware-simple.dir/src/seekware-simple.o  -o seekware-simple -Wl,-rpath,:::::::::: -lseekware -lm 
