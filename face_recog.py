@@ -100,7 +100,7 @@ def get_embs_from_folder(folder=None):
 
     return embs, labels
 
-def face_recog(known_faces, frame, model, threshold=0.4):
+def face_recog(known_faces, frame, model, threshold=0.5):
     ### Detect and crop face ###
     known_embs, known_labels = known_faces
     boxes = detect_faces(frame)
