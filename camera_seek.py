@@ -17,11 +17,12 @@ import pandas as pd # any version
 import sys, traceback
 import face_recognition
 import datetime
+import tensorflow as tf
 
 # any version of these
 # from mtcnn.mtcnn import MTCNN
 from playsound import playsound # for warning siren
-from tensorflow.keras import models as models
+# from tensorflow.keras import models as models
 from scipy.spatial.distance import cosine
 from imutils import face_utils
 from imutils.video import WebcamVideoStream
@@ -29,6 +30,8 @@ from imutils.video import WebcamVideoStream
 from seek import SeekThermal
 from object_tracker import CentroidTracker
 
+### For face recognition ###
+from face_recog import face_recog, get_model, get_embs_from_folder
 import threading
 
 DPI = 2080
@@ -44,11 +47,11 @@ g = []
 b = []
 
 with open('colormap.txt', 'r') as f:
-		for i in range(256):
-				x,y,z = f.readline().split(',')
-				r.append(x)
-				g.append(y)
-				b.append(z.replace(";\n", ""))
+	for i in range(256):
+		x,y,z = f.readline().split(',')
+		r.append(x)
+		g.append(y)
+		b.append(z.replace(";\n", ""))
 
 colormap = np.zeros((256, 1, 3), dtype=np.uint8)
 colormap[:, 0, 0] = b
@@ -59,7 +62,6 @@ colormap[:, 0, 2] = r
 net = cv2.dnn.readNetFromCaffe("deploy.prototxt", "dnn_model.caffemodel")
 # mask_detector = models.load_model('model_1.h5')
 ct = CentroidTracker()
-
 frame_ = None
 temps = None
 frame_temps = None 
@@ -70,6 +72,7 @@ frame_temps = None
 body_predictor = pickle.load(open("heat_dist_predictor.h5", "rb"))
 amb = 0 # ambient temperature
 
+session = tf.Session()
 FRAME_SIZE = 550 # the frame size for display (not processing)
 OFFSET_FACTOR = 0.7 # to cure the error when distance/amb is beyond training ds
 FAR_OFFSET_FACTOR = 0.8
@@ -112,111 +115,12 @@ known_names = []
 
 # first load all known faces into an array
 if(not os.path.exists('validation_encodings.pickle') or not os.path.exists('known_names.pickle')):
-	for (dir, dirs, files) in os.walk(FACE_DIR):
-		for file in files:
-			img = cv2.imread(FACE_DIR + file)
-			img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-			(h, w) = img.shape[:2]
-			blob = cv2.dnn.blobFromImage(cv2.resize(img, (300,300)), 1.0, (300,300), (104.0,177.0,123.0))
-			net.setInput(blob)
-			detections = net.forward()
-			# img = lumination_correct(img)
-			# img = lumination_correct(img)
-
-			# extract the face region
-			#locations = face_recognition.face_locations(img)
-			if(len(detections) < 1):
-				continue
-			else:
-				for i in range(0, detections.shape[2]):
-					if(detections[0,0,i,2] < 0.5):
-						continue
-
-					print("Face detected at " + (FACE_DIR + file))
-					box = detections[0,0,i,3:7] * np.array([w,h,w,h])
-					(startX, startY, endX, endY) = box.astype("int")
-
-					top = startY
-					right = endX
-					bottom = endY
-					left = startX
-					# (top, right, bottom, left) = locations[0]
-					(x,y,w,h) = left, top, right - left, bottom - top
-
-					# img = cv2.resize(img, (0,0), fx = 0.25, fy = 0.25)
-					encodings = face_recognition.face_encodings(img, [(top, right, bottom, left)])
-					if(len(encodings) < 1):
-						continue
-					else:
-						known_encodings.append(encodings[0])
-						known_names.append(file.split(".")[0])
-
-	pickle.dump(known_encodings, open("validation_encodings.pickle", "wb"))
-	pickle.dump(known_names, open("known_names.pickle", "wb"))
-
+	known_encodings, known_names = get_embs_from_folder(folder='faces/')
 else:
-	known_encodings = pickle.load(open("validation_encodings.pickle", "rb"))
-	known_names = pickle.load(open("known_names.pickle", "rb"))
+	known_encodings, known_names = get_embs_from_folder(folder=None)
 
-known_encodings = np.array(known_encodings)
 ANALYTIC_DATA_DIR = 'analytics/'
 analytics_df = []
-
-def recognize(face):
-	global analytics_df
-	# constants are defaulted for mask wearers
-	try:
-		if(len(analytics_df) >= 100):
-			anal_df = pd.DataFrame(data = analytics_df, columns=['distance','cosine_similarity','verfied_as'])
-			analytics_df = []
-
-			anal_df.to_csv(ANALYTIC_DATA_DIR + "/" + str(time.time()) + ".csv")
-
-		name = "Unknown"
-
-		'''
-		face = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
-		confidence = 0
-		(h,w) = face.shape[:2]
-		TOLERANCE = 0.60
-		COSINE_SIMILARITY = 0.93
-		''' 
-
-		mask = mask_detector.predict(np.array([cv2.resize(face, (224,224))]).reshape(1,224,224,3))
-		index = np.argmax(mask[0])
-
-		mask = 'With Mask'
-		if(index == 1):
-			mask = 'Without Mask'
-			# TOLERANCE = 0.4
-			# COSINE_SIMILARITY = 0.965
-
-
-		'''
-		face_encoding = face_recognition.face_encodings(face, [(0,w,h,0)])
-		matches = face_recognition.compare_faces(known_encodings, face_encoding, tolerance=TOLERANCE)
-		face_distances = face_recognition.face_distance(known_encodings, face_encoding)
-
-		best_match = np.argmin(face_distances)
-
-
-		if(matches[best_match]):
-			cosine_similarity = 1 - cosine(known_encodings[best_match], face_encoding)
-			#print(cosine_similarity)
-			analytics_df.append([face_distances[best_match], cosine_similarity, known_names[best_match]])
-			if(cosine_similarity >= COSINE_SIMILARITY):
-				name = known_names[best_match]
-				#print(name)
-				confidence = cosine_similarity
-			else:
-				name = "Unknown"
-		else:
-			name = "Unknown"
-		'''
-
-		return name, mask, confidence
-	except:
-		return None, None, None
 
 # oh, actually this too
 amb_list = []
@@ -325,6 +229,7 @@ class Camera(object):
 		global CASE_ORIENTATION
 		self.vs = WebcamVideoStream(src = 0).start()
 		self.seek = SeekThermal()
+		self.fr_model = get_model()
 
 		self.stopEvent = threading.Event()
 		self.warning = threading.Event()
@@ -481,13 +386,13 @@ class Camera(object):
 																
 				# grab the frame dimensions and convert it to a blob
 				(H, W) = frame.shape[:2]
-				#blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
+				cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
 															 
 				# pass the blob through the network and obtain the detections and
 				# predictions
 				#net.setInput(blob)
 				#detections = net.forward()
-				detections = detect_faces(frame)
+				detections, identities = face_recog((known_encodings, known_names), frame, self.fr_model)
 				data = []
 				try:
 					frame_, temps = self.seek.get_frame()
@@ -518,8 +423,11 @@ class Camera(object):
 					pass  
 				if(self.PROCESS_FRAME):
 					self.face_locations,self.face_locations_thermal, self.temperatures, self.distances, self.masks, self.names = [],[],[],[],[],[]
-					for detection in detections:
+					
+					for i, detection in enumerate(detections):
 						incident = []
+						### Add identity ###
+						self.names.append(identities[i])
 						now = datetime.datetime.now()
 						incident.append(str(now.day) + "/" + str(now.month) + "/" + str(now.year))
 						incident.append(str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)) 
@@ -541,7 +449,7 @@ class Camera(object):
 
 						### if the startX and startY is out of the box limit, not a correct detection ###
 						if(startX > 400 or startY > 400): continue
-
+ 
 						if(startX > self.X_thermal and startY > self.Y_thermal and endX < self.X_thermal+self.W_thermal and endY < self.Y_thermal + self.H_thermal):
 							self.face_locations.append((startX, startY, endX, endY))
 						(x,y,w,h) = startX, startY, endX - startX, endY-startY#face_utils.rect_to_bb(rect) # rect['box']
@@ -554,11 +462,7 @@ class Camera(object):
 							display_dist = distance
 							self.distances.append(display_dist)
 
-							'''if(distance > 100):
-								distance  = 100
-							elif(distance < 70):
-								distance = 70'''
-
+							
 							### frame_temps from (150,200) to (400,400)
 							self.frame_temps = cv2.resize(self.frame_temps, (400,400))
 
@@ -670,9 +574,11 @@ class Camera(object):
 				rects, objects = ct.update(self.face_locations)
 				self.PROCESS_FRAME = not self.PROCESS_FRAME
 
-				for (objectID, centroid), (startX,startY,endX,endY), (new_X, new_Y, new_W, new_H), temp, dist in zip(objects.items(), self.face_locations, self.face_locations_thermal, self.temperatures, self.distances):
+				for (objectID, centroid), (startX,startY,endX,endY), (new_X, new_Y, new_W, new_H), temp, dist, name in zip(objects.items(), self.face_locations, self.face_locations_thermal, self.temperatures, self.distances, self.names):
 					cv2.rectangle(frame, (startX,startY), (endX,endY), (0,255,0),1)
 					cv2.rectangle(frame_, (new_X, new_Y), (min(new_X + new_W, 400), min(new_Y + new_H, 400)), (0,0,0), 2)
+					cv2.putText(frame, name, (startX, startY), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,255,0))
+					### integrate face recognition ###
 					if(CURRENT_METRIC == 'Celcius'):
 						cv2.putText(frame, "{0:.1f}.C".format(temp) , (startX,startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2)
 					else:
@@ -687,7 +593,6 @@ class Camera(object):
 							if(startX < centroid[0] and endX > centroid[0] and startY < centroid[1] and endY > centroid[1]):
 								incident_ids.append(objectID)
 								img = frame[max(0,startY-40):min(endY+40,400),max(0,startX-40):min(400,endX+40)]
-								# print(max(0,startY-40),min(endY+40,400),max(0,startX-40),min(400,endX+40))
 								img = cv2.resize(img, (250,250))
 								temperature = self.temperatures[i]
 								distance = self.distances[i]
@@ -710,28 +615,15 @@ class Camera(object):
 
 								cv2.imwrite("static/img/incidents/" + file_name, img)
 
-				try:
-					# frame = cv2.resize(self.frame_temps, (FRAME_SIZE + 100, FRAME_SIZE))
-					
+				try:					
 					### A Fix for the seek thermal mounting problem ###
 					(H_, W_) = frame.shape[:2]
-					# frame = frame[self.Y_thermal - 60: self.Y_thermal + self.H_thermal + 60,self.X_thermal - 60: self.X_thermal + self.W_thermal + 60]
 					frame = cv2.resize(frame, (W_, H_))
 					frame = cv2.resize(frame, (FRAME_SIZE + 100, FRAME_SIZE))
-					### Get time string ###
-					# now = datetime.datetime.now()
-					# time_string = "%02d:%02d" % (now.hour, now.minute)
-
-					# date_string = "%02d/%02d/%04d" % (now.month, now.day, now.year)
-					# time_string += " - " + date_string
-
-					### put the time string to the left corner ###
-					# cv2.putText(frame, time_string, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
 					
-					self.normal_img = frame 
-					# print(self.normal_img)
 					
-					# frame_ = cv2.resize(self.frame_temps, (FRAME_SIZE + 100, FRAME_SIZE))
+					self.normal_img = frame 					
+					
 					frame_ = cv2.resize(frame_, (FRAME_SIZE + 100, FRAME_SIZE))
 
 					self.thermal_img = frame_
@@ -745,12 +637,11 @@ class Camera(object):
 		
 		if(camera_view == "GRAY"):
 			gray = cv2.cvtColor(self.thermal_img, cv2.COLOR_BGR2GRAY)
-			self.thermal_img[:,:,0] = gray # cv2.cvtColor(self.thermal_img, cv2.COLOR_BGR2GRAY)
+			self.thermal_img[:,:,0] = gray
 			self.thermal_img[:,:,1] = gray
 			self.thermal_img[:,:,2] = gray 
 
-		# print(self.thermal_img)
-		# image = np.concatenate([self.normal_img, self.thermal_img], axis=1)
+		
 		image = self.normal_img
 		ret, jpeg = cv2.imencode('.jpg', image)
 
