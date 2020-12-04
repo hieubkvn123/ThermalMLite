@@ -128,9 +128,12 @@ def face_recog(known_faces, frame, model, threshold=0.5):
         if(matches[best_match]):
             identity = known_labels[best_match]
 
+        print(distances, distances[best_match])
 
         # print('DISTANCE : ' + str(distances[best_match]))
         face_locations.append((x1,y1,x2,y2))
         face_id.append(identity)
 
     return face_locations, face_id
+
+### def register_new() ###
