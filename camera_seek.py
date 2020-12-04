@@ -31,7 +31,7 @@ from seek import SeekThermal
 from object_tracker import CentroidTracker
 
 ### For face recognition ###
-from face_recog import face_recog, get_model, get_embs_from_folder
+from face_recog import face_recog, get_facenet_model, get_arcface_model, get_embs_from_folder
 import threading
 
 DPI = 2080
@@ -229,7 +229,7 @@ class Camera(object):
 		global CASE_ORIENTATION
 		self.vs = WebcamVideoStream(src = 0).start()
 		self.seek = SeekThermal()
-		self.fr_model = get_model()
+		self.fr_model = get_facenet_model()
 
 		self.stopEvent = threading.Event()
 		self.warning = threading.Event()
