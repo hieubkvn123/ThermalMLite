@@ -115,9 +115,9 @@ known_names = []
 
 # first load all known faces into an array
 if(not os.path.exists('validation_encodings.pickle') or not os.path.exists('known_names.pickle')):
-	known_encodings, known_names = get_embs_from_folder(folder='faces/')
+	known_encodings, known_names = get_embs_from_folder(folders=['faces/', 'masked/'])
 else:
-	known_encodings, known_names = get_embs_from_folder(folder=None)
+	known_encodings, known_names = get_embs_from_folder(folders=None)
 
 ANALYTIC_DATA_DIR = 'analytics/'
 analytics_df = []

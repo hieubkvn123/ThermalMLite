@@ -56,36 +56,40 @@ def preprocessing(img):
     return image
 
 
-def get_embs_from_folder(folder=None):
+def get_embs_from_folder(folders=None):
     labels = []
     embs = []
 
-    if(folder is None):
+    if(folders is None):
         embs = pickle.load(open('validation_encodings.pickle', 'rb'))
         labels = pickle.load(open('known_names.pickle', 'rb'))
 
         return embs, labels
     
-    for (dir_, dirs, files) in os.walk(folder):
-        for file_ in files:
-            abs_path = dir_ + '/' + file_
-            img = cv2.imread(abs_path)
+    for folder in folders:
+        for (dir_, dirs, files) in os.walk(folder):
+            for file_ in files:
+                abs_path = dir_ + '/' + file_
+                img = cv2.imread(abs_path)
 
-            ### Detect and crop face ###
-            box = detect_faces(img)[0]
-            x1, y1, x2, y2 = box
-            face = img[y1:y2,x1:x2]
+                ### Detect and crop face ###
+                box = detect_faces(img)[0]
+                x1, y1, x2, y2 = box
+                face = img[y1:y2,x1:x2]
 
-            ### Image preprocessing 
-            face = preprocessing(face)
-            face = np.expand_dims(face, axis=0)
-            print('Processing file %s ' % abs_path)
+                ### Image preprocessing 
+                face = preprocessing(face)
+                face = np.expand_dims(face, axis=0)
+                print('Processing file %s ' % abs_path)
 
-            emb = model.predict(face)[0]
-            embs.append(emb)
+                emb = model.predict(face)[0]
+                embs.append(emb)
 
-            label = file_.split('.')[0]
-            labels.append(label)
+                label = file_.split('.')[0]
+                if(len(file_.split('_')) > 1):
+                    label = label.split('_')[0]
+                    
+                labels.append(label)
 
     ### Normalize the embeddings ###
     embs = np.array(embs)
