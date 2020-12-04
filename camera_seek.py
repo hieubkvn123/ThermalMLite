@@ -577,13 +577,13 @@ class Camera(object):
 				for (objectID, centroid), (startX,startY,endX,endY), (new_X, new_Y, new_W, new_H), temp, dist, name in zip(objects.items(), self.face_locations, self.face_locations_thermal, self.temperatures, self.distances, self.names):
 					cv2.rectangle(frame, (startX,startY), (endX,endY), (0,255,0),1)
 					cv2.rectangle(frame_, (new_X, new_Y), (min(new_X + new_W, 400), min(new_Y + new_H, 400)), (0,0,0), 2)
-					cv2.putText(frame, name, (startX, startY), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,255,0))
 					### integrate face recognition ###
 					if(CURRENT_METRIC == 'Celcius'):
-						cv2.putText(frame, "{0:.1f}.C".format(temp) , (startX,startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2)
+						cv2.putText(frame, "{0:.1f}.C".format(temp) , (startX,startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
 					else:
 						cv2.putText(frame, "{0:.1f}.F".format(self.__to_fahrenheit(temp)), (startX, startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255) ,1)
-					cv2.putText(frame, "Distance {0:.1f}".format(dist) , (startX,endY+20), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0,0,255), 2)
+					cv2.putText(frame, "Distance {0:.1f}".format(dist) , (startX,endY+20), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0,0,255), 1)
+					cv2.putText(frame, "Identity : {}".format(name), (startX, endY+40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
 
 					if(objectID not in incident_ids):
 						#check all locations in the list
