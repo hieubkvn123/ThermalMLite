@@ -48,46 +48,55 @@ def get_arcface_model():
     w_decay = 1e-4
     num_classes = 5000
 
-    class ArcFace(Layer):
-        def __init__(self, n_classes=10, s=30.0, m=0.50, regularizer=None, **kwargs):
-            super(ArcFace, self).__init__(**kwargs)
-            self.n_classes = n_classes
-            self.s = s
-            self.m = m
-            self.regularizer = regularizers.l2(1e-4/2)#regularizers.get(regularizer)
+    class AngularMarginPenalty(tf.keras.layers.Layer):
+      def __init__(self, n_classes=10, input_dim=512):
+        super(AngularMarginPenalty, self).__init__()    
+        self.s = 30 # the radius of the hypersphere
+        self.m1 = 1.0
+        self.m2 = 0.003
+        self.m3 = 0.02
+        self.n_classes=n_classes
+        self.w_init = tf.random_normal_initializer()
 
-        def build(self, input_shape):
-            super(ArcFace, self).build(input_shape[0])
-            self.W = self.add_weight(name='W',
-                                    shape=(512, self.n_classes),
+        self.W = self.add_weight(name='W',
+                                    shape=(input_dim, self.n_classes),
                                     initializer='glorot_uniform',
                                     trainable=True,
-                                    regularizer=self.regularizer)
+                                    regularizer=None)
+        b_init = tf.zeros_initializer()
 
-        def call(self, inputs):
-            x, y = inputs
-            c = K.shape(x)[-1]
-            # normalize feature
-            x = tf.nn.l2_normalize(x, axis=1)
-            # normalize weights
-            W = tf.nn.l2_normalize(self.W, axis=0)
-            # dot product
-            original_logits = x @ W
-            # add margin
-            # clip logits to prevent zero division when backward
-            theta = tf.acos(K.clip(original_logits, -1.0 + K.epsilon(), 1.0 - K.epsilon()))
-            target_logits = tf.cos(theta + self.m)
-            # sin = tf.sqrt(1 - logits**2)
-            # cos_m = tf.cos(logits)
-            # sin_m = tf.sin(logits)
-            # target_logits = logits * cos_m - sin * sin_m
-            #
-            logits = original_logits * (1 - y) + target_logits * y
-            # feature re-scale
-            logits *= self.s
-            out = tf.nn.softmax(logits)
+        ### For now we are not gonna use bias ###
+        
+      def call(self, inputs):
+          x, y = inputs
+          c = K.shape(x)[-1]
+          ### normalize feature ###
+          x = tf.nn.l2_normalize(x, axis=1)
 
-            return original_logits, out
+          ### normalize weights ###
+          W = tf.nn.l2_normalize(self.W, axis=0)
+
+          ### dot product / cosines of thetas ###
+          logits = x @ W
+
+          ### add margin ###
+          ''' 
+            in the paper we have theta + m but here I am just gonna decrease theta 
+            this is because most theta are within [0,pi/2] - in the decreasing region of cosine func
+          '''
+          
+          # clip logits to prevent zero division when backward
+          theta = tf.acos(K.clip(logits, -1.0 + K.epsilon(), 1.0 - K.epsilon()))
+          
+          marginal_logit = tf.cos((tf.math.maximum(theta*self.m1 + self.m2, 0))) # - self.m3 
+          logits = logits + (marginal_logit - logits) * y
+          
+          #logits = logits + tf.cos((theta * self.m)) * y
+          # feature re-scale
+          logits *= self.s
+          out = tf.nn.softmax(logits)
+
+          return out
 
     # using inceptionv3 as the backbone model
     model_face = tf.keras.applications.InceptionV3(include_top=False, input_shape=(170,170,3))
@@ -96,21 +105,22 @@ def get_arcface_model():
     # adding custom layers
     last = model_face.output
     x = Flatten()(last)
-    x = BatchNormalization()(x)
+    #x = BatchNormalization()(x)
     x = Dropout(rate=0.5)(x)
-    x = Dense(emb_shape, kernel_initializer='he_normal', kernel_regularizer=regularizers.l2(w_decay))(x)
-    x = BatchNormalization()(x)
-    logits, x = ArcFace(n_classes=num_classes)([x, labels])
+    x = Dense(emb_shape)(x)#, kernel_initializer='he_normal', kernel_regularizer=regularizers.l2(w_decay))(x)
+    # x = BatchNormalization()(x)
+    # logits, x = ArcFace(n_classes=num_classes)([x, labels])
+    x = AngularMarginPenalty(n_classes=num_classes, input_dim=512)([x, labels])
 
     model = Model(inputs=[model_face.input, labels], outputs=x, name="model_1")
     model.load_weights('models/arcface.weights.hdf5')
-    model = Model(inputs=model.inputs[0], outputs=model.layers[-4].output)
+    model = Model(inputs=model.inputs[0], outputs=model.layers[-3].output)
     model._make_predict_function()
 
     return model
 
-model = get_facenet_model()
-# model = get_arcface_model()
+# model = get_facenet_model()
+model = get_arcface_model()
 
 def preprocessing(img):
     image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -211,7 +221,7 @@ def face_recog(known_faces, frame, model, threshold=0.5):
 
 def face_recog_adaptive(known_faces, frame, model, thresholds):
     ### Detect and crop face ###
-    margin = 0.03
+    margin = 0.0 # 0.03
 
     known_embs, known_labels = known_faces
     boxes = detect_faces(frame)

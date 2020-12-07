@@ -235,7 +235,7 @@ class Camera(object):
 		global CASE_ORIENTATION
 		self.vs = WebcamVideoStream(src = 0).start()
 		self.seek = SeekThermal()
-		self.fr_model = get_facenet_model()
+		self.fr_model = get_arcface_model()#get_facenet_model()
 
 		### for adaptive face recog ###
 		self.dist_matrix = get_threshold(known_encodings, known_names)
