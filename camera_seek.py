@@ -31,7 +31,12 @@ from seek import SeekThermal
 from object_tracker import CentroidTracker
 
 ### For face recognition ###
-from face_recog import face_recog, get_facenet_model, get_arcface_model, get_embs_from_folder
+from face_recog import get_facenet_model, get_arcface_model, get_embs_from_folder
+
+### for adaptive face recognition ###
+from face_recog import face_recog_adaptive as face_recog
+from face_recog import get_threshold 
+
 import threading
 
 DPI = 2080
@@ -118,6 +123,7 @@ if(not os.path.exists('validation_encodings.pickle') or not os.path.exists('know
 	known_encodings, known_names = get_embs_from_folder(folders=['faces/', 'masked/'])
 else:
 	known_encodings, known_names = get_embs_from_folder(folders=None)
+
 
 ANALYTIC_DATA_DIR = 'analytics/'
 analytics_df = []
@@ -230,6 +236,9 @@ class Camera(object):
 		self.vs = WebcamVideoStream(src = 0).start()
 		self.seek = SeekThermal()
 		self.fr_model = get_facenet_model()
+
+		### for adaptive face recog ###
+		self.dist_matrix = get_threshold(known_encodings, known_names)
 
 		self.stopEvent = threading.Event()
 		self.warning = threading.Event()
@@ -392,7 +401,7 @@ class Camera(object):
 				# predictions
 				#net.setInput(blob)
 				#detections = net.forward()
-				detections, identities = face_recog((known_encodings, known_names), frame, self.fr_model)
+				detections, identities = face_recog((known_encodings, known_names), frame, self.fr_model, self.dist_matrix)
 				data = []
 				try:
 					frame_, temps = self.seek.get_frame()

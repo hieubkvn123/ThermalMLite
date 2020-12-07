@@ -6,6 +6,7 @@ import face_recognition as fr
 from face_detection import detect_faces
 
 import tensorflow as tf
+from scipy.spatial.distance import cdist
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import *
 from tensorflow.keras import regularizers
@@ -200,12 +201,63 @@ def face_recog(known_faces, frame, model, threshold=0.5):
         if(matches[best_match]):
             identity = known_labels[best_match]
 
-        print(distances, distances[best_match])
+        # print(distances, distances[best_match])
 
         # print('DISTANCE : ' + str(distances[best_match]))
         face_locations.append((x1,y1,x2,y2))
         face_id.append(identity)
 
     return face_locations, face_id
+
+def face_recog_adaptive(known_faces, frame, model, thresholds):
+    ### Detect and crop face ###
+    margin = 0.03
+
+    known_embs, known_labels = known_faces
+    boxes = detect_faces(frame)
+    face_locations = []
+    face_id = []
+
+    for box in boxes:
+        identity = 'Unknown'
+        x1, y1, x2, y2 = box
+        face = frame[y1:y2,x1:x2]
+
+        ### check the validity of face's shape ###
+        if(np.shape(face) == ()):
+            continue 
+            
+        face = preprocessing(face)
+
+        ### Normalize the new embedding ###
+        emb = model.predict(np.array([face]))
+        emb /= np.linalg.norm(emb)
+
+        # print(emb.shape)
+        dist_mat = 1 - cdist(np.array(emb), known_embs, 'cosine')
+        dist_mat = dist_mat[0]
+        best_match = np.argmax(dist_mat)
+
+        print(dist_mat[best_match], thresholds[best_match])
+        if(dist_mat[best_match] >= thresholds[best_match] + margin):
+            identity = known_labels[best_match]
+
+        face_locations.append((x1,y1,x2,y2))
+        face_id.append(identity)
+
+    return face_locations, face_id
+
+def get_threshold(embs, labels, distance='cosine'):
+    dist_matrix = cdist(embs, embs, distance)
+    sigmas = []
+
+    for i, label in enumerate(labels):
+        dist = dist_matrix[i]
+        dist = dist[np.where(labels != label)]
+        dist = 1 - dist 
+        sigma = dist[np.argmax(dist)]
+        sigmas.append(sigma)
+
+    return sigmas
 
 ### def register_new() ###
