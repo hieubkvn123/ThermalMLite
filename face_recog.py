@@ -221,7 +221,7 @@ def face_recog(known_faces, frame, model, threshold=0.5):
 
 def face_recog_adaptive(known_faces, frame, model, thresholds):
     ### Detect and crop face ###
-    margin = 0.0 # 0.03
+    margin = 0.03
 
     known_embs, known_labels = known_faces
     boxes = detect_faces(frame)
