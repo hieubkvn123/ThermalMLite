@@ -172,24 +172,6 @@ $(document).ready(function(){
 		var formData = new FormData()
 		formData.append("secret_key", "HieuDepTry")
 
-		/*
-		var formData_count = new FormData()
-		formData_count.append("type", "receiver")
-
-		$.ajax({
-			url : "/get_instore",
-			type : "POST",
-			data : formData_count,
-			async : true,
-			processData : false,
-			contentType : false,
-			success : function(response){
-				if(response != 'wait')
-					$("#instore").html(response)
-			}
-		})
-		*/
-
 		$.ajax({
 			url : "/poll_incident",
 			type : 'POST',

@@ -1,5 +1,4 @@
 ### This is the script for ThermalX - SeekThermal version ###
-
 import os
 import glob
 import hashlib
