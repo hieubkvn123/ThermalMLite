@@ -30,7 +30,7 @@ from seek import SeekThermal
 from object_tracker import CentroidTracker
 
 ### For face recognition ###
-from face_recog import get_facenet_model, get_arcface_model, get_embs_from_folder
+from face_recog import get_facenet_model, get_arcface_mobilenet_model, get_arcface_model, get_arcface_model_1, get_embs_from_folder
 
 ### for adaptive face recognition ###
 from face_recog import face_recog_adaptive as face_recog
@@ -117,8 +117,11 @@ FACE_DIR = "faces/"
 known_encodings = []
 known_names = []
 
+validation_encodings_path = 'validation_encodings_1.pickle'
+known_names_path = 'known_names_1.pickle'
+
 # first load all known faces into an array
-if(not os.path.exists('validation_encodings.pickle') or not os.path.exists('known_names.pickle')):
+if(not os.path.exists(validation_encodings_path) or not os.path.exists(known_names_path)):
 	known_encodings, known_names = get_embs_from_folder(folders=['faces/', 'masked/'])
 else:
 	known_encodings, known_names = get_embs_from_folder(folders=None)
@@ -234,7 +237,7 @@ class Camera(object):
 		global CASE_ORIENTATION
 		self.vs = WebcamVideoStream(src = 0).start()
 		self.seek = SeekThermal()
-		self.fr_model = get_arcface_model()#get_facenet_model()
+		self.fr_model = get_arcface_mobilenet_model() # get_arcface_model_1()#get_facenet_model()
 
 		### for adaptive face recog ###
 		self.dist_matrix = get_threshold(known_encodings, known_names)

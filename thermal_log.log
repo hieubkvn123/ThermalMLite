@@ -2,4 +2,34 @@ seekware-simple - A simple data capture utility for Seek Thermal cameras
 
 SDK Version: 3.4
 
-Cannot find any cameras...exiting
+::Camera Firmware Info::
+Model Number:2774
+SerialNumber: 190FZ1KNJRC5
+Manufacture Date: 6/25/2020 7:05:00 AM
+Firmware Version: 8.8.1.29
+Themography Version: 5
+Image Processing Version: 2.6.4.0
+
+[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  1
+[2K field_count:  38
+[2K frame_rate:   0.2fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 25.6C [0m
+[2K[2K[42m[37m spot:25.3C [0m
+[2K[2K[44m[37m min: 24.0C [0m
+[2K--------------------------
+
+Exit requested!
+Exiting...
+Exit requested!
+Exit requested!
+Exit requested!
+Exit requested!

@@ -2,16 +2,16 @@ from argparse import ArgumentParser
 from flask import Flask, render_template, Response
 from flask import request
 from flask import send_file
-from camera_seek import move_file_to_static
-from camera_seek import Camera
-from camera_seek import get_amb, get_people_per_hour, get_current_incidents, get_people_count, get_current_threshold, get_average_amb
+from camera_seek_with_fr import move_file_to_static
+from camera_seek_with_fr import Camera
+from camera_seek_with_fr import get_amb, get_people_per_hour, get_current_incidents, get_people_count, get_current_threshold, get_average_amb
 
 import os
 import json
 import time
 import datetime
 import threading
-import camera_seek as camera
+import camera_seek_with_fr as camera
 import requests
 import logging
 import numpy as np
