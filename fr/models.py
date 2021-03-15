@@ -81,6 +81,18 @@ class AngularMarginPenalty(tf.keras.layers.Layer):
   def set_m3(self, m3):
       self.m3 = m3
 
+  def get_config(self):
+      config = super().get_config().copy()
+      config.update({
+            "m1" : self.m1,
+            "m2" : self.m2,
+            "m3" : self.m3,
+            "s" : self.s
+      })
+
+      return config
+
+        
   def call(self, inputs):
       x, y = inputs
       c = K.shape(x)[-1]

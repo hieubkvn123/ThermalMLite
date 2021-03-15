@@ -3,7 +3,9 @@ import sys
 import cv2
 import glob
 import time
+import json
 import shutil
+import requests
 import traceback
 import numpy as np
 import tensorflow as tf
@@ -22,7 +24,7 @@ from .mask_utils import MaskDetector
 from .models import facenet
 from .detect_utils import detect_and_align
 
-graph = tf.get_default_graph()
+# graph = tf.get_default_graph()
 def get_threshold(embs, labels, distance='cosine'):
 	dist_matrix = cdist(embs, embs, distance)
 	sigmas = []
@@ -75,6 +77,9 @@ class FaceRecognizer(object):
 		self.detect_mask = detect_mask
 
 		self.model = tf.keras.models.Model(inputs=facenet.inputs[0], outputs=facenet.get_layer('emb_output').output)
+		
+		### Change this ###
+		self.model_url = "http://localhost:8502/v1/models/arcface_keras:predict"
 		self.mask_detector = MaskDetector(base_path)
 
 		if(registration_folder is None):
@@ -130,6 +135,23 @@ class FaceRecognizer(object):
 
 		return rgb
 
+	def make_tf_serve_request(self, image):
+		data = json.dumps({
+			"signature_name":"serving_default",
+			"instances":[
+				{
+					"input_1" : image.tolist()
+				}
+			]
+		})
+		headers = {"content-type":"application/json"}
+		r = requests.post(self.model_url, data=data, headers=headers)
+		predictions = json.loads(r.text)['predictions']
+		predictions = np.array(predictions)
+
+		return predictions
+
+
 	def _face_preprocessing(self, image, size=(170, 170)):
 		image = cv2.resize(image, size)
 		image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -167,7 +189,8 @@ class FaceRecognizer(object):
 		''' Using the clf model to recognize '''
 		identity = 'Unknown'
 		### Get embeddings from face ###
-		embedding = self.model.predict(np.array([face]))
+		# embedding = self.model.predict(np.array([face]))
+		embedding = self.make_tf_serve_request(face)
 		embedding = embedding / np.linalg.norm(embedding, axis=1).reshape(-1, 1)
 
 		if(not masked):
@@ -185,7 +208,8 @@ class FaceRecognizer(object):
 	def recognize(self, face):
 		identity = 'Unknown'
 		### Get embeddings from face ###
-		embedding = self.model.predict(np.array([face]))
+		# embedding = self.model.predict(np.array([face]))
+		embedding = self.make_tf_serve_request(face)
 		embedding = embedding / np.linalg.norm(embedding, axis=1).reshape(-1, 1)
 
 		### Get the distance matrix ###
