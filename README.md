@@ -1,12 +1,16 @@
 # ThermalXAndFR
 # Installation for Vertical case:
-	```console $ sudo sh install.sh vertical ```
-# Installation for Horizontal case :
-	```console $ sudo sh install.sh horizontal ```
+```bash
+   $ sudo sh install.sh vertical 
+```
+# Installation for Horizontal case :	
+```bash 
+	$ sudo sh install.sh horizontal 
+```
 
 # Preparing embedders :
 	1. Keras to tf SavedModel
-	```python
+```python
 		from tensorflow.keras import models
 		from tensorflow.keras.models import Model
 		from fr.models import facenet
@@ -27,8 +31,10 @@
 				2. variables folder
 				3. saved_model.pb file
 		'''
-	```
+```
 
 # Starting tensorflow serving :
-	```console $ sudo sh start_tensorflow_serving.sh ```
+```bash
+	$ sudo sh start_tensorflow_serving.sh 
+```
 	This script and run_main.sh script must be run concurrently
