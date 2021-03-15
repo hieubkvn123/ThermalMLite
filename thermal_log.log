@@ -22,14 +22,27 @@ Image Processing Version: 2.6.4.0
 
 [2K Temperature Info:
 [2K--------------------------
-[2K[2K[41m[37m max: 25.6C [0m
-[2K[2K[42m[37m spot:25.3C [0m
-[2K[2K[44m[37m min: 24.0C [0m
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.5C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  2
+[2K field_count:  47
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.4C [0m
 [2K--------------------------
 
 Exit requested!
 Exiting...
-Exit requested!
-Exit requested!
-Exit requested!
-Exit requested!

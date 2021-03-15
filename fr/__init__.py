@@ -22,6 +22,7 @@ from .mask_utils import MaskDetector
 from .models import facenet
 from .detect_utils import detect_and_align
 
+graph = tf.get_default_graph()
 def get_threshold(embs, labels, distance='cosine'):
 	dist_matrix = cdist(embs, embs, distance)
 	sigmas = []

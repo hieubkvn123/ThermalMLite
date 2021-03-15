@@ -1,7 +1,6 @@
 import os
 import cv2
 import numpy as np
-import tensorflow as tf
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.models import Model
@@ -12,7 +11,6 @@ from tensorflow.keras.layers import *
 
 class MaskDetector(object):
 	def __init__(self, base_path, model_file='mask_detector.model', weights_file='mask_detector.weights'):
-		print(base_path)
 		self.base_path = base_path
 		self.model_file = os.path.join(self.base_path, model_file) 
 		self.weights_file = os.path.join(self.base_path, weights_file)
@@ -22,10 +20,8 @@ class MaskDetector(object):
 			self.mask_detector = load_model(self.model_file)
 		except:
 			print('[INFO] Loading mask detector model from weights file ... ')
-			
 			self.mask_detector = self._model_arch()
 			self.mask_detector.load_weights(self.weights_file)
-			# self.mask_detector._make_predict_function()
 
 	def _model_arch(self):
 		baseModel = MobileNetV2(weights='imagenet', include_top=False, input_tensor=Input(shape=(224,224,3)))
@@ -52,8 +48,7 @@ class MaskDetector(object):
 
 	def predict(self, image):
 		image = self._preprocess(image)
-		
-		label = self.mask_detector(np.array([image]), training=False)
+		label = self.mask_detector.predict(np.array([image]))
 		label = np.argmax(label[0])
 		if(label == 1):
 			label = 'No Mask'
