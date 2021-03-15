@@ -1,0 +1,1975 @@
+seekware-simple - A simple data capture utility for Seek Thermal cameras
+
+SDK Version: 3.4
+
+::Camera Firmware Info::
+Model Number:2774
+SerialNumber: 190FZ1KNJRC5
+Manufacture Date: 6/25/2020 7:05:00 AM
+Firmware Version: 8.8.1.29
+Themography Version: 5
+Image Processing Version: 2.6.4.0
+
+[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  1
+[2K field_count:  38
+[2K frame_rate:   0.2fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 31.1C [0m
+[2K[2K[42m[37m spot:26.1C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  2
+[2K field_count:  47
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.9C [0m
+[2K[2K[42m[37m spot:29.0C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  3
+[2K field_count:  56
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:28.2C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  4
+[2K field_count:  65
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.3C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  5
+[2K field_count:  66
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.3C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  6
+[2K field_count:  67
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:27.3C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  7
+[2K field_count:  68
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.2C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  8
+[2K field_count:  69
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.2C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  9
+[2K field_count:  70
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.8C [0m
+[2K[2K[42m[37m spot:27.2C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  10
+[2K field_count:  71
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.2C [0m
+[2K[2K[42m[37m spot:27.1C [0m
+[2K[2K[44m[37m min: 25.2C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  11
+[2K field_count:  72
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.2C [0m
+[2K[2K[42m[37m spot:27.1C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  12
+[2K field_count:  73
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.2C [0m
+[2K[2K[42m[37m spot:27.1C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  13
+[2K field_count:  74
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:27.0C [0m
+[2K[2K[44m[37m min: 25.2C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  14
+[2K field_count:  75
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:27.0C [0m
+[2K[2K[44m[37m min: 25.2C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  15
+[2K field_count:  76
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.2C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  16
+[2K field_count:  77
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  17
+[2K field_count:  78
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.9C [0m
+[2K[2K[42m[37m spot:26.7C [0m
+[2K[2K[44m[37m min: 25.1C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  18
+[2K field_count:  79
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.9C [0m
+[2K[2K[42m[37m spot:26.7C [0m
+[2K[2K[44m[37m min: 25.1C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  19
+[2K field_count:  80
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.2C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  20
+[2K field_count:  89
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.7C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.5C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  21
+[2K field_count:  90
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.7C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.5C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  22
+[2K field_count:  91
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.6C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.5C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  23
+[2K field_count:  92
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  24
+[2K field_count:  93
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.7C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.5C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  25
+[2K field_count:  94
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.4C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.5C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  26
+[2K field_count:  95
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  27
+[2K field_count:  96
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.5C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  28
+[2K field_count:  97
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.6C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  29
+[2K field_count:  98
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.6C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  30
+[2K field_count:  99
+[2K frame_rate:   8.4fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.5C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  31
+[2K field_count:  100
+[2K frame_rate:   8.8fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.3C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  32
+[2K field_count:  101
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.9C [0m
+[2K[2K[42m[37m spot:26.3C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  33
+[2K field_count:  102
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  34
+[2K field_count:  103
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.8C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  35
+[2K field_count:  104
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 34.7C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.3C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  36
+[2K field_count:  113
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  37
+[2K field_count:  114
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  38
+[2K field_count:  115
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.3C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  39
+[2K field_count:  116
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.2C [0m
+[2K[2K[42m[37m spot:26.3C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  40
+[2K field_count:  117
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.2C [0m
+[2K[2K[42m[37m spot:26.3C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  41
+[2K field_count:  118
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  42
+[2K field_count:  119
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  43
+[2K field_count:  120
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  44
+[2K field_count:  121
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  45
+[2K field_count:  122
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  46
+[2K field_count:  123
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.1C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  47
+[2K field_count:  124
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.2C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  48
+[2K field_count:  125
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  49
+[2K field_count:  126
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  50
+[2K field_count:  127
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:26.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  51
+[2K field_count:  128
+[2K frame_rate:   8.4fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.1C [0m
+[2K[2K[44m[37m min: 25.4C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  52
+[2K field_count:  137
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.4C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  53
+[2K field_count:  138
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.1C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  54
+[2K field_count:  139
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.4C [0m
+[2K[2K[42m[37m spot:27.0C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  55
+[2K field_count:  140
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.4C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  56
+[2K field_count:  141
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:27.0C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  57
+[2K field_count:  142
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.2C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  58
+[2K field_count:  143
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.4C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  59
+[2K field_count:  144
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:26.9C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  60
+[2K field_count:  145
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.0C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  61
+[2K field_count:  146
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.4C [0m
+[2K[2K[42m[37m spot:27.0C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  62
+[2K field_count:  147
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.0C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  63
+[2K field_count:  148
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.0C [0m
+[2K[2K[42m[37m spot:27.1C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  64
+[2K field_count:  149
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.2C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  65
+[2K field_count:  150
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.3C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  66
+[2K field_count:  151
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.3C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  67
+[2K field_count:  152
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:27.3C [0m
+[2K[2K[44m[37m min: 25.6C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  68
+[2K field_count:  161
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.7C [0m
+[2K[2K[42m[37m spot:28.1C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  69
+[2K field_count:  162
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:29.9C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  70
+[2K field_count:  163
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.1C [0m
+[2K[2K[42m[37m spot:30.3C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  71
+[2K field_count:  164
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.8C [0m
+[2K[2K[42m[37m spot:29.8C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  72
+[2K field_count:  165
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.8C [0m
+[2K[2K[42m[37m spot:29.4C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  73
+[2K field_count:  166
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.9C [0m
+[2K[2K[42m[37m spot:28.9C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  74
+[2K field_count:  167
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.9C [0m
+[2K[2K[42m[37m spot:28.6C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  75
+[2K field_count:  168
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:28.4C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  76
+[2K field_count:  169
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:28.2C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  77
+[2K field_count:  170
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:28.1C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  78
+[2K field_count:  171
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:28.0C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  79
+[2K field_count:  172
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:27.9C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  80
+[2K field_count:  173
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.7C [0m
+[2K[2K[42m[37m spot:27.8C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  81
+[2K field_count:  174
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.7C [0m
+[2K[2K[42m[37m spot:27.7C [0m
+[2K[2K[44m[37m min: 25.7C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  82
+[2K field_count:  175
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:27.7C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  83
+[2K field_count:  176
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.0C [0m
+[2K[2K[42m[37m spot:27.7C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  84
+[2K field_count:  185
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 36.2C [0m
+[2K[2K[42m[37m spot:29.1C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  85
+[2K field_count:  186
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.8C [0m
+[2K[2K[42m[37m spot:28.6C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  86
+[2K field_count:  187
+[2K frame_rate:   8.8fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.8C [0m
+[2K[2K[42m[37m spot:27.1C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  87
+[2K field_count:  188
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.7C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  88
+[2K field_count:  189
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.5C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  89
+[2K field_count:  190
+[2K frame_rate:   8.8fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 35.3C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  90
+[2K field_count:  191
+[2K frame_rate:   8.4fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 33.5C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  91
+[2K field_count:  192
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 30.1C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  92
+[2K field_count:  193
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  93
+[2K field_count:  194
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  94
+[2K field_count:  195
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  95
+[2K field_count:  196
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.6C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  96
+[2K field_count:  197
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  97
+[2K field_count:  198
+[2K frame_rate:   8.7fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  98
+[2K field_count:  199
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  99
+[2K field_count:  200
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  100
+[2K field_count:  209
+[2K frame_rate:   1.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  101
+[2K field_count:  210
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  102
+[2K field_count:  211
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  103
+[2K field_count:  212
+[2K frame_rate:   8.8fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  104
+[2K field_count:  213
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  105
+[2K field_count:  214
+[2K frame_rate:   8.5fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  106
+[2K field_count:  215
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 26.1C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  107
+[2K field_count:  216
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.5C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  108
+[2K field_count:  217
+[2K frame_rate:   8.2fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  109
+[2K field_count:  218
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  110
+[2K field_count:  219
+[2K frame_rate:   9.0fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 26.0C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  111
+[2K field_count:  220
+[2K frame_rate:   8.2fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.8C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  112
+[2K field_count:  221
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.6C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  113
+[2K field_count:  222
+[2K frame_rate:   8.9fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  114
+[2K field_count:  223
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.3C [0m
+[2K[2K[44m[37m min: 25.9C [0m
+[2K--------------------------
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[2K Frame Info:
+[2K--------------------------
+[2K frame_width:  200
+[2K field_height: 150
+[2K frame_count:  115
+[2K field_count:  224
+[2K frame_rate:   8.6fps
+[2K timestamp:    0.000000s
+[2K--------------------------
+
+[2K Temperature Info:
+[2K--------------------------
+[2K[2K[41m[37m max: 26.7C [0m
+[2K[2K[42m[37m spot:26.4C [0m
+[2K[2K[44m[37m min: 25.8C [0m
+[2K--------------------------
+
+Exit requested!
+Exit requested!
+Exit requested!
+Exit requested!
+Exit requested!
+Exiting...
+Exit requested!
+Exit requested!

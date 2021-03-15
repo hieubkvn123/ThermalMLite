@@ -18,7 +18,7 @@ sudo python3 -m pip install cvlib
 sudo python3 -m pip install opencv-python==3.4.8.29 # or 3.4.6.27
 
 # installing tensorflow will automatically install scipy, numpy
-sudo python3 -m pip install tensorflow==1.14.0 --verbose
+sudo python3 -m pip install tensorflow==2.1 --verbose # for ThermalMLite 2.1, ThermalM 1.14
 sudo python3 -m pip install numpy
 sudo python3 -m pip install Pillow
 sudo python3 -m pip install matplotlib==3.2.1
