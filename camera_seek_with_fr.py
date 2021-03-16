@@ -314,13 +314,15 @@ class Camera(object):
 		print("________________________________________________________________________")
 		print("[INFO] Camera stream stopped ... ")
 
+		'''
 		print("[INFO] Uploading data file to server ...")
 		data = {'password' : hashlib.md5("HieuDepTry".encode()).hexdigest()}
 		files = {'file' : open(file_name, "r")}
 
 		r = requests.post("http://167.71.193.193:8080/upload", data=data, files=files)
 		print(r.text)
-
+		'''
+		
 		# reset the incident list
 		files = glob.glob('static/img/incidents/*.jpg')
 		for f in files:
@@ -546,8 +548,6 @@ class Camera(object):
 							except:
 								self.temperatures.append(36.5)
 							
-							# incident.append("{0:.2f}".format(self.temperatures[len(self.temperatures) - 1]))
-
 							if(self.temperatures[len(self.temperatures) - 1] > MIN_TEMP_THRESH):
 								if(not HOT_OBJECT): 
 									if(self.breached_pause == 0 and not self.pause):
