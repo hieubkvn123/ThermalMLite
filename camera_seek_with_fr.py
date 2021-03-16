@@ -60,7 +60,6 @@ colormap[:, 0, 2] = r
 
 
 net = cv2.dnn.readNetFromCaffe("deploy.prototxt", "dnn_model.caffemodel")
-# mask_detector = models.load_model('model_1.h5')
 ct = CentroidTracker()
 frame_ = None
 temps = None
