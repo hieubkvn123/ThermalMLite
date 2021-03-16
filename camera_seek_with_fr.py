@@ -387,7 +387,13 @@ class Camera(object):
 
 				frame = cv2.flip(frame, flipCode = 0)
 				frame = cv2.flip(frame, flipCode = 1)
-				cv2.rectangle(frame, (self.X_thermal, self.Y_thermal), (self.X_thermal + self.W_thermal, self.Y_thermal+self.H_thermal), (255,0,0), 1)
+
+				### Put a black border around the thermal box ###
+				frame[0:self.X_thermal, :] = 0
+				frame[self.X_thermal+self.W_thermal:400, :] = 0
+				frame[:, 0:self.Y_thermal] = 0
+				frame[:, self.Y_thermal+self.H_thermal:400] = 0
+				# cv2.rectangle(frame, (self.X_thermal, self.Y_thermal), (self.X_thermal + self.W_thermal, self.Y_thermal+self.H_thermal), (255,0,0), 1)
 																
 				# grab the frame dimensions and convert it to a blob
 				(H, W) = frame.shape[:2]
