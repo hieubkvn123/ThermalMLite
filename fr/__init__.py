@@ -435,7 +435,7 @@ class FaceRecognizer(object):
 					bounding_box_color = (0,0,255)
 					masked = False
 
-				cv2.rectangle(frame, (x1, y1), (x2, y2), bounding_box_color, 1)
+				# cv2.rectangle(frame, (x1, y1), (x2, y2), bounding_box_color, 1)
 
 				### Check image quality ###
 				blur_ = self._is_blur(face)
