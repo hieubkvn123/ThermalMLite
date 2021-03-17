@@ -4,3 +4,4 @@ models/*.hdf5
 *.pickle
 __pycache__/
 *.csv
+data/*

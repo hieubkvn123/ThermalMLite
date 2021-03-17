@@ -41,24 +41,6 @@ FOCAL_LENGTH = 5 # / 10 * DPI / 2.54 # mm - 3.34 for the latte panda camera
 SENSOR_HEIGHT = 4
 KNOWN_HEIGHT = 20 # cm
 
-# Loading the color map
-r = []
-g = []
-b = []
-
-with open('colormap.txt', 'r') as f:
-	for i in range(256):
-		x,y,z = f.readline().split(',')
-		r.append(x)
-		g.append(y)
-		b.append(z.replace(";\n", ""))
-
-colormap = np.zeros((256, 1, 3), dtype=np.uint8)
-colormap[:, 0, 0] = b
-colormap[:, 0, 1] = g
-colormap[:, 0, 2] = r
-
-
 net = cv2.dnn.readNetFromCaffe("deploy.prototxt", "dnn_model.caffemodel")
 ct = CentroidTracker()
 frame_ = None
@@ -322,7 +304,7 @@ class Camera(object):
 		r = requests.post("http://167.71.193.193:8080/upload", data=data, files=files)
 		print(r.text)
 		'''
-		
+
 		# reset the incident list
 		files = glob.glob('static/img/incidents/*.jpg')
 		for f in files:

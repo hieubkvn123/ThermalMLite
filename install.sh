@@ -44,7 +44,12 @@ gsettings set org.gnome.desktop.background picture-uri "file:///home/lattepanda/
 
 ### create the incidents folder ###
 sudo mkdir static/img/incidents
-sudo chmod 0777 static/img/incidents
+sudo chmod 0777 static/img/incidents/*.jpeg
+sudo chmod 0777 ./static/img/incidents
+
+### Change mode of audio files ###
+sudo chmod 0777 ./audio
+sudo chmod 0777 audio/*.mp3
 
 ### create a startup file ###
 sudo rm run_main.sh ### remove old version ###
