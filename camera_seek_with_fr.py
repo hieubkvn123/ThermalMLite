@@ -208,7 +208,7 @@ def get_time_for_plot():
 
 	return time 
 
-recognizer = FaceRecognizer()
+recognizer = FaceRecognizer(tflite=True) # using tflite
 class Camera(object):
 	def __init__(self):
 		global CASE_ORIENTATION
@@ -295,15 +295,6 @@ class Camera(object):
 
 		print("________________________________________________________________________")
 		print("[INFO] Camera stream stopped ... ")
-
-		'''
-		print("[INFO] Uploading data file to server ...")
-		data = {'password' : hashlib.md5("HieuDepTry".encode()).hexdigest()}
-		files = {'file' : open(file_name, "r")}
-
-		r = requests.post("http://167.71.193.193:8080/upload", data=data, files=files)
-		print(r.text)
-		'''
 
 		# reset the incident list
 		files = glob.glob('static/img/incidents/*.jpg')

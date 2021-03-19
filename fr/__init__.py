@@ -56,7 +56,7 @@ def get_threshold(embs, labels, distance='cosine'):
 	return sigmas
 
 class FaceRecognizer(object):
-	def __init__(self, registration_folder=None, camera_index=0, camera_flip=False, detect_mask=True, tflite=True, tflite_path="tflite"):
+	def __init__(self, registration_folder=None, camera_index=0, camera_flip=False, detect_mask=True, tflite=False, tflite_path="tflite"):
 		global facenet
 		base_path = os.path.dirname(os.path.realpath(__file__))
 		weights_path = os.path.join(base_path, 'model_94k_faces_glintasia_without_norm.hdf5')
@@ -64,22 +64,23 @@ class FaceRecognizer(object):
 		print('[INFO] Loading model ... ')
 		facenet.load_weights(weights_path)
 
-		self.clf_no_mask_path = os.path.join(base_path, 'clf_no_mask.pickle')
-		self.clf_mask_path = os.path.join(base_path, 'clf_mask.pickle')
+		self.clf_no_mask_path = os.path.join(base_path, 'clf_no_mask.pickle') # Path of model to recognize normal faces
+		self.clf_mask_path = os.path.join(base_path, 'clf_mask.pickle') # Path of model to recognize masked faces
 
 		try:
 			self.clf = EmbeddingClassifier(registration_folder=registration_folder, mask=False, model_path=self.clf_no_mask_path)
 			self.clf_mask = EmbeddingClassifier(registration_folder=registration_folder, mask=True, model_path=self.clf_mask_path)
 		except:
 			print('[INFO] Not enough idx to create classifier ... ')
-		self.camera_index = camera_index
-		self.camera_flip = camera_flip
-		self.detect_mask = detect_mask
 
-		self.model = tf.keras.models.Model(inputs=facenet.inputs[0], outputs=facenet.get_layer('emb_output').output)
-		self.tflite = tflite 
-		self.tflite_path = os.path.join(os.environ['HOME'], tflite_path)
-		self.tflite_model_path = os.path.join(self.tflite_path, "face_recog_thermalmlite.tflite")
+		self.camera_index = camera_index # what camera id
+		self.camera_flip = camera_flip # whether to flip the camera or not
+		self.detect_mask = detect_mask # whether to detect mask or not
+
+		self.model = tf.keras.models.Model(inputs=facenet.inputs[0], outputs=facenet.get_layer('emb_output').output) # get the arcface model
+		self.tflite = tflite # whether to use tflite or not, default using tensorflow serving with docker
+		self.tflite_path = os.path.join(os.environ['HOME'], tflite_path) # the folder to put the tflite model in
+		self.tflite_model_path = os.path.join(self.tflite_path, "face_recog_thermalmlite.tflite") # the tflite model path
 
 		if(not os.path.exists(self.tflite_path)):
 			os.mkdir(self.tflite_path)
