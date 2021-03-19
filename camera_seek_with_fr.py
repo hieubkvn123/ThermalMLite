@@ -365,12 +365,17 @@ class Camera(object):
 
 					# reset data frame
 					df = []
-																
+										
+				### Frame for processing ###						
 				frame = self.vs.read()
 				frame = cv2.resize(frame, (400, 400))				
 
 				frame = cv2.flip(frame, flipCode = 0)
 				frame = cv2.flip(frame, flipCode = 1)
+
+				### Frame for display ###
+				frame_display = frame.copy()
+				cv2.rectangle(frame_display, (self.X_thermal, self.Y_thermal), (self.X_thermal + self.W_thermal, self.Y_thermal+self.H_thermal), (255,0,0), 1)
 
 				### Put a black border around the thermal box ###
 				frame[0:self.X_thermal, :] = 0
@@ -566,15 +571,15 @@ class Camera(object):
 				self.PROCESS_FRAME = not self.PROCESS_FRAME
 
 				for (objectID, centroid), (startX,startY,endX,endY), (new_X, new_Y, new_W, new_H), temp, dist, name in zip(objects.items(), self.face_locations, self.face_locations_thermal, self.temperatures, self.distances, self.names):
-					cv2.rectangle(frame, (startX,startY), (endX,endY), (0,255,0),1)
+					cv2.rectangle(frame_display, (startX,startY), (endX,endY), (0,255,0),1)
 					cv2.rectangle(frame_, (new_X, new_Y), (min(new_X + new_W, 400), min(new_Y + new_H, 400)), (0,0,0), 2)
 					### integrate face recognition ###
 					if(CURRENT_METRIC == 'Celcius'):
-						cv2.putText(frame, "{0:.1f}.C".format(temp) , (startX,startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
+						cv2.putText(frame_display, "{0:.1f}.C".format(temp) , (startX,startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
 					else:
-						cv2.putText(frame, "{0:.1f}.F".format(self.__to_fahrenheit(temp)), (startX, startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255) ,1)
-					cv2.putText(frame, "Distance {0:.1f}".format(dist) , (startX,endY+20), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0,0,255), 1)
-					cv2.putText(frame, "Identity : {}".format(name), (startX, endY+40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
+						cv2.putText(frame_display, "{0:.1f}.F".format(self.__to_fahrenheit(temp)), (startX, startY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255) ,1)
+					cv2.putText(frame_display, "Distance {0:.1f}".format(dist) , (startX,endY+20), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0,0,255), 1)
+					cv2.putText(frame_display, "Identity : {}".format(name), (startX, endY+40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
 
 					if(objectID not in incident_ids):
 						#check all locations in the list
@@ -608,12 +613,12 @@ class Camera(object):
 
 				try:					
 					### A Fix for the seek thermal mounting problem ###
-					(H_, W_) = frame.shape[:2]
-					frame = cv2.resize(frame, (W_, H_))
-					frame = cv2.resize(frame, (FRAME_SIZE + 100, FRAME_SIZE))
+					(H_, W_) = frame_display.shape[:2]
+					frame_display = cv2.resize(frame_display, (W_, H_))
+					frame_display = cv2.resize(frame_display, (FRAME_SIZE + 100, FRAME_SIZE))
 					
 					
-					self.normal_img = frame 					
+					self.normal_img = frame_display 					
 					
 					frame_ = cv2.resize(frame_, (FRAME_SIZE + 100, FRAME_SIZE))
 

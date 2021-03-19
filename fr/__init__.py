@@ -56,7 +56,7 @@ def get_threshold(embs, labels, distance='cosine'):
 	return sigmas
 
 class FaceRecognizer(object):
-	def __init__(self, registration_folder=None, camera_index=0, camera_flip=False, detect_mask=True):
+	def __init__(self, registration_folder=None, camera_index=0, camera_flip=False, detect_mask=True, tflite=True, tflite_path="tflite"):
 		global facenet
 		base_path = os.path.dirname(os.path.realpath(__file__))
 		weights_path = os.path.join(base_path, 'model_94k_faces_glintasia_without_norm.hdf5')
@@ -77,6 +77,15 @@ class FaceRecognizer(object):
 		self.detect_mask = detect_mask
 
 		self.model = tf.keras.models.Model(inputs=facenet.inputs[0], outputs=facenet.get_layer('emb_output').output)
+		self.tflite = tflite 
+		self.tflite_path = os.path.join(os.environ['HOME'], tflite_path)
+		self.tflite_model_path = os.path.join(self.tflite_path, "face_recog_thermalmlite.tflite")
+
+		if(not os.path.exists(self.tflite_path)):
+			os.mkdir(self.tflite_path)
+
+		if(self.tflite):
+			self.model = self._to_tflite(self.model)
 		
 		### Change this ###
 		self.model_url = "http://localhost:8502/v1/models/arcface_keras:predict"
@@ -124,6 +133,40 @@ class FaceRecognizer(object):
 
 		if(len(np.unique(self.labels_masked)) >= 2):
 			self.sigmas_masked = get_threshold(self.embeddings_masked, self.labels_masked)
+
+	def _to_tflite(self, model):
+		model_path = os.path.join(self.tflite_path, "1")
+
+		if(not os.path.exists(model_path)):
+			os.mkdir(model_path)
+
+		if(not os.path.exists(self.tflite_model_path)):
+			tf.keras.models.save_model(model, model_path)
+			converter = tf.lite.TFLiteConverter.from_saved_model(model_path)
+			tflite_model = converter.convert()
+			open(self.tflite_model_path, "wb").write(tflite_model)
+
+		# Load the TFLite model and allocate tensors.
+		interpreter = tf.lite.Interpreter(model_path=self.tflite_model_path)
+		interpreter.allocate_tensors()
+
+		# Get input and output tensors.
+		self.tflite_input_details = interpreter.get_input_details()
+		self.tflite_output_details = interpreter.get_output_details()
+
+		return interpreter
+
+	def tflite_inference(self, img):
+		img = np.array([img], dtype=np.float32)
+		self.model.set_tensor(self.tflite_input_details[0]['index'], img)
+
+		self.model.invoke()
+
+		# The function `get_tensor()` returns a copy of the tensor data.
+		# Use `tensor()` in order to get a pointer to the tensor.
+		output_data_tflite = self.model.get_tensor(self.tflite_output_details[0]['index'])
+
+		return output_data_tflite
 
 	def _histogram_equalization(self, image):
 		r, g, b = cv2.split(image)
@@ -190,7 +233,11 @@ class FaceRecognizer(object):
 		identity = 'Unknown'
 		### Get embeddings from face ###
 		# embedding = self.model.predict(np.array([face]))
-		embedding = self.make_tf_serve_request(face)
+		
+		if(self.tflite):
+			embedding = self.tflite_inference(face)
+		else:
+			embedding = self.make_tf_serve_request(face)
 		embedding = embedding / np.linalg.norm(embedding, axis=1).reshape(-1, 1)
 
 		if(not masked):
@@ -209,7 +256,10 @@ class FaceRecognizer(object):
 		identity = 'Unknown'
 		### Get embeddings from face ###
 		# embedding = self.model.predict(np.array([face]))
-		embedding = self.make_tf_serve_request(face)
+		if(self.tflite):
+			embedding = self.tflite_inference(face)
+		else:
+			embedding = self.make_tf_serve_request(face)
 		embedding = embedding / np.linalg.norm(embedding, axis=1).reshape(-1, 1)
 
 		### Get the distance matrix ###
@@ -311,7 +361,10 @@ class FaceRecognizer(object):
 			img = cv2.imread(img_file)
 			face_images.append(self._face_preprocessing(img))
 
-		embeddings = self.model.predict(np.array(face_images))
+		if(self.tflite):
+			embeddings = self.tflite_inference(np.array(face_images))
+		else:
+			embeddings = self.model.predict(np.array(face_images))
 		embeddings = embeddings / np.linalg.norm(embeddings, axis=1).reshape(-1, 1) # normalize
 
 		with open(os.path.join(id_dir, '%s_masked.npy' % name), 'wb') as f:
@@ -389,7 +442,12 @@ class FaceRecognizer(object):
 		if(len(face_images) >= 20):
 			print('[INFO] Number of images collected : ', len(face_images))
 			print('[INFO] Generating embeddings ... ')
-			embeddings = self.model.predict(np.array(face_images))
+
+			if(self.tflite):
+				embeddings = self.tflite_inference(np.array(face_images))
+			else:
+				embeddings = self.model.predict(np.array(face_images))
+			
 			embeddings = embeddings / np.linalg.norm(embeddings, axis=1).reshape(-1, 1) # normalize
 
 			with open(os.path.join(id_dir, '%s.npy' % name), 'wb') as f:
