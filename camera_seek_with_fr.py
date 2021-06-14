@@ -7,7 +7,7 @@ import sys, traceback
 import cv2 # 3.4.6.27
 # import cvlib as cv --> tensorflow 2.1.0
 # from face_detection import detect_faces
-import time 
+import time
 import datetime
 import pickle
 import imutils # any version
@@ -45,7 +45,7 @@ net = cv2.dnn.readNetFromCaffe("deploy.prototxt", "dnn_model.caffemodel")
 ct = CentroidTracker()
 frame_ = None
 temps = None
-frame_temps = None 
+frame_temps = None
 
 # should switch to predicting the distance difference because
 # the offset factor of distance matters less as compared to ratios
@@ -63,7 +63,7 @@ CASE_ORIENTATION = 'vertical'
 
 # Recording interval :
 # For every one hour there will be one record time
-# each record will include : 
+# each record will include :
 # Time From - To (broken down to 10 minutes intervals)
 # Average ambiant temperature
 # Number of incidents
@@ -84,7 +84,7 @@ def lumination_correct(img):
 	return final
 
 # add on feature over here
-# so in this one we need to return 
+# so in this one we need to return
 # 1. who this guy is
 # 2. whether he is wearing a mask or not
 # 3. and how many percent confidence
@@ -176,23 +176,23 @@ def move_file_to_static():
 	now = datetime.datetime.now()
 
 	time = str(now.day) + '-' + str(now.month) + '-' + str(now.year)
-	from_ = str(app_start.hour) + ':' + str(app_start.minute) 
+	from_ = str(app_start.hour) + ':' + str(app_start.minute)
 	to_ = str(now.hour) + ':' + str(now.minute)
 
 	columns = ['Date', 'Time', 'Distance away','Unadjusted_Temp', 'Temperature', 'Overheated','Average ambient temperature']
 	remaining_data = pd.DataFrame(df, columns = columns)
-	
+
 	for i, file in enumerate(files_list):
 		data = pd.read_csv(file, header = 0)
 
 		if(i == 0):
-			root_data = data 
+			root_data = data
 		else:
 			root_data = pd.concat([root_data, data])
 
 	root_data = pd.concat([root_data, remaining_data])
 
-	file_name = 'data_' + time + "_" + from_ + '_' + to_ + '.csv' 
+	file_name = 'data_' + time + "_" + from_ + '_' + to_ + '.csv'
 	root_data.to_csv("static/" + file_name)
 
 	return file_name
@@ -200,15 +200,15 @@ def move_file_to_static():
 def get_time_for_plot():
 	now = datetime.datetime.now()
 
-	hour = now.hour 
-	minute = now.minute 
-	second = now.second 
+	hour = now.hour
+	minute = now.minute
+	second = now.second
 
 	time = str(hour) + ":" + str(minute) + ":" + str(second)
 
-	return time 
+	return time
 
-recognizer = FaceRecognizer(tflite=True) # using tflite
+recognizer = FaceRecognizer(tflite=False) # not using tflite
 class Camera(object):
 	def __init__(self):
 		global CASE_ORIENTATION
@@ -225,7 +225,7 @@ class Camera(object):
 
 		self.app_start = time.time()
 		self.total_faces = 0
-		
+
 		self.PROCESS_FRAME = True
 		self.face_locations, self.face_locations_thermal, self.temperatures, self.distances, self.masks, self.names = [],[],[],[],[],[]
 
@@ -276,7 +276,7 @@ class Camera(object):
 		MIN_TEMP_THRESH = 37.5 # reset the minimum temperature threshold
 
 		self.vs.stop()
-		
+
 		# refresh current incidents
 		current_incidents = []
 
@@ -312,7 +312,7 @@ class Camera(object):
 		global files_list
 		# save the records
 		print(df)
-                
+
 		columns = ['Date', 'Time', 'Distance away','Unadjusted_Temp', 'Temperature', 'Overheated','Average ambient temperature']
 		data_frame = pd.DataFrame(df, columns = columns)
 		file_name = self.data_dir + str(time.time()) + '.csv'
@@ -322,7 +322,7 @@ class Camera(object):
 	### A fix for the corner visible at the thermal image ###
 	def zoom(self, img, percentage=0.80):
 		height, width = img.shape[:2]
-		padding_height = int(((1 - percentage) * height) / 2) 
+		padding_height = int(((1 - percentage) * height) / 2)
 		padding_width = int(((1 - percentage) * width) / 2)
 
 		img_cropped = img[padding_height:height-padding_height, padding_width: width - padding_width]
@@ -336,7 +336,7 @@ class Camera(object):
 		global incidents_list
 		global camera_view
 		global df
-		global incident_ids 
+		global incident_ids
 		global frame_
 
 		try:
@@ -356,10 +356,10 @@ class Camera(object):
 
 					# reset data frame
 					df = []
-										
-				### Frame for processing ###						
+
+				### Frame for processing ###
 				frame = self.vs.read()
-				frame = cv2.resize(frame, (400, 400))				
+				frame = cv2.resize(frame, (400, 400))
 
 				frame = cv2.flip(frame, flipCode = 0)
 				frame = cv2.flip(frame, flipCode = 1)
@@ -374,11 +374,11 @@ class Camera(object):
 				frame[:, 0:self.Y_thermal] = 0
 				frame[:, self.Y_thermal+self.H_thermal:400] = 0
 				# cv2.rectangle(frame, (self.X_thermal, self.Y_thermal), (self.X_thermal + self.W_thermal, self.Y_thermal+self.H_thermal), (255,0,0), 1)
-																
+
 				# grab the frame dimensions and convert it to a blob
 				(H, W) = frame.shape[:2]
 				cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
-															 
+
 				# pass the blob through the network and obtain the detections and
 				# predictions
 				detections, identities = recognizer.detect_and_recognize(frame)
@@ -405,21 +405,21 @@ class Camera(object):
 
 					### round temperature value to integer ###
 					self.frame_temps = temps.astype(np.uint8)
-						
+
 				except Exception as e:
 					traceback.print_exc(file=sys.stdout)
-					print("[INFO] Thermal camera crashed, re-running ...")					
-					pass  
+					print("[INFO] Thermal camera crashed, re-running ...")
+					pass
 				if(self.PROCESS_FRAME):
 					self.face_locations,self.face_locations_thermal, self.temperatures, self.distances, self.masks, self.names = [],[],[],[],[],[]
-					
+
 					for i, detection in enumerate(detections):
 						incident = []
 						### Add identity ###
 						self.names.append(identities[i])
 						now = datetime.datetime.now()
 						incident.append(str(now.day) + "/" + str(now.month) + "/" + str(now.year))
-						incident.append(str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)) 
+						incident.append(str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
 
 						### if face is detected then record in people frequency data ###
 						self.total_faces += 1
@@ -432,17 +432,17 @@ class Camera(object):
 						if(len(people_per_hour) >= 100):
 							people_per_hour.pop(0)
 							people_per_hour_x_axis.pop(0)
-					
+
 						# box = detections[0,0,i,3:7] * np.array([W,H,W,H])
 						(startX, startY, endX, endY) = detection #box.astype("int")
 
 						### if the startX and startY is out of the box limit, not a correct detection ###
 						if(startX > 400 or startY > 400): continue
- 
+
 						if(startX > self.X_thermal and startY > self.Y_thermal and endX < self.X_thermal+self.W_thermal and endY < self.Y_thermal + self.H_thermal):
 							self.face_locations.append((startX, startY, endX, endY))
 						(x,y,w,h) = startX, startY, endX - startX, endY-startY#face_utils.rect_to_bb(rect) # rect['box']
-						
+
 
 						try:
 							# disActivatetance = (focal_length * known_height * img_height) / (object_height(px) * sensor_height)
@@ -451,7 +451,7 @@ class Camera(object):
 							display_dist = distance
 							self.distances.append(display_dist)
 
-							
+
 							### frame_temps from (150,200) to (400,400)
 							self.frame_temps = cv2.resize(self.frame_temps, (400,400))
 
@@ -464,7 +464,7 @@ class Camera(object):
 								new_H = int((h/self.H_thermal * 400))+20
 								# cv2.rectangle(self.frame_temps, (new_X, new_Y), (new_X+new_W, new_Y+new_H), (0,0,0),1)
 							else: continue
-							
+
 							### get the thermal region of the face ###
 							self.face_locations_thermal.append((new_X, new_Y, new_W, new_H))
 							temps = self.frame_temps[new_Y:min(new_Y+new_H, 400), new_X: min(new_X + new_W,400)].flatten()
@@ -489,15 +489,15 @@ class Camera(object):
 
 								### Check if real distance yields better result
 								prediction =  body_predictor.predict(np.array([[distance, amb]]))
-									
+
 								ratio = prediction[0]
-								mean = mean + ratio 
+								mean = mean + ratio
 
 								# config the baseline
 								if(int(mean) % 30 < 6 or int(mean) < 30):
 									add = 36 - (int(mean) % 36)
 									mean = mean + add
-											
+
 								# variance/bias correction (based on statistics)
 								if(mean > 37.5):
 									mean -= FAR_OFFSET_FACTOR
@@ -515,7 +515,7 @@ class Camera(object):
 
 										t_hot_obj = threading.Thread(target=playsound, args=('audio/hot_object.mp3',))
 										t_hot_obj.start()
-																
+
 								# self.temperatures.append(mean)
 								if(distance > 220):
 									self.temperatures.append(36.3)
@@ -525,9 +525,9 @@ class Camera(object):
 
 							except:
 								self.temperatures.append(36.5)
-							
+
 							if(self.temperatures[len(self.temperatures) - 1] > MIN_TEMP_THRESH):
-								if(not HOT_OBJECT): 
+								if(not HOT_OBJECT):
 									if(self.breached_pause == 0 and not self.pause):
 										self.breached_pause = 1
 										t_warn = threading.Thread(target=playsound, args=("audio/beep-06.mp3",))
@@ -546,7 +546,7 @@ class Camera(object):
 									else:
 										incident.append("pause")
 								else:
-									incident.append("hot_object")	
+									incident.append("hot_object")
 							else:
 								incident.append("No")
 
@@ -555,7 +555,7 @@ class Camera(object):
 						except:
 							traceback.print_exc(file=sys.stdout)
 
-					### end for ###		
+					### end for ###
 
 				### Update centroid tracker ###
 				rects, objects = ct.update(self.face_locations)
@@ -602,34 +602,34 @@ class Camera(object):
 
 								cv2.imwrite("static/img/incidents/" + file_name, img)
 
-				try:					
+				try:
 					### A Fix for the seek thermal mounting problem ###
 					(H_, W_) = frame_display.shape[:2]
 					frame_display = cv2.resize(frame_display, (W_, H_))
 					frame_display = cv2.resize(frame_display, (FRAME_SIZE + 100, FRAME_SIZE))
-					
-					
-					self.normal_img = frame_display 					
-					
+
+
+					self.normal_img = frame_display
+
 					frame_ = cv2.resize(frame_, (FRAME_SIZE + 100, FRAME_SIZE))
 
 					self.thermal_img = frame_
 				except:
 					traceback.print_exc(file=sys.stdout)
 					print("[INFO] Drop frame")
-		except Exception as e: 
+		except Exception as e:
 			traceback.print_exc(file=sys.stdout)
 			print("[INFO] Programme ended")
 			raise e
-		
+
 		if(camera_view == "GRAY"):
 			gray = cv2.cvtColor(self.thermal_img, cv2.COLOR_BGR2GRAY)
 			self.thermal_img[:,:,0] = gray
 			self.thermal_img[:,:,1] = gray
-			self.thermal_img[:,:,2] = gray 
+			self.thermal_img[:,:,2] = gray
 
-		
+
 		image = self.normal_img
 		ret, jpeg = cv2.imencode('.jpg', image)
 
-		return jpeg.tobytes()	
+		return jpeg.tobytes()
