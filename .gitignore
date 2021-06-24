@@ -5,4 +5,5 @@ models/*.hdf5
 __pycache__/
 *.csv
 data/*
+thermography.csv
 static/img/incidents/*.jpg
