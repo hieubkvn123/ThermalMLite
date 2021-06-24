@@ -10,7 +10,7 @@ sudo apt install python3-opencv
 sudo apt install xdotool
 sudo apt install cmake
 sudo cp include/seekware.h /usr/include/seekware.h
-sudo cp lib/libseekware.so.3.4 /usr/lib/libseekware.so.3.4
+sudo cp lib/libseekware.so.3.8 /usr/lib/libseekware.so.3.8
 
 ### Python dependencies ###
 sudo python3 -m pip install flask
