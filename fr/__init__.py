@@ -238,7 +238,8 @@ class FaceRecognizer(object):
 		if(self.tflite):
 			embedding = self.tflite_inference(face)
 		else:
-			embedding = self.make_tf_serve_request(face)
+			# embedding = self.make_tf_serve_request(face)
+			embedding = self.model.predict(np.array([face]))
 		embedding = embedding / np.linalg.norm(embedding, axis=1).reshape(-1, 1)
 
 		if(not masked):
@@ -260,7 +261,8 @@ class FaceRecognizer(object):
 		if(self.tflite):
 			embedding = self.tflite_inference(face)
 		else:
-			embedding = self.make_tf_serve_request(face)
+			# embedding = self.make_tf_serve_request(face)
+			embedding = self.model.predict(np.array([face]))
 		embedding = embedding / np.linalg.norm(embedding, axis=1).reshape(-1, 1)
 
 		### Get the distance matrix ###
