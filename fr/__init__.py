@@ -121,11 +121,15 @@ class FaceRecognizer(object):
 
 				print(f'Embedding not created for {idx}, creating ... ')
 				for img_path in img_paths:
-					print(f'{img_path} processed ... ')
 					faces, locations = detect_and_align(cv2.imread(img_path))
 					for face, location in zip(faces, locations):
-						face = self._face_preprocessing(face)
-						face_imgs.append(face)
+						try:
+							face = self._face_preprocessing(face)
+							face_imgs.append(face)
+						except:
+							print(f'Image at {img_path} discarded ... ')
+
+					print(f'Image at {img_path} processed')
 
 				embeddings = self.model.predict(np.array(face_imgs))
 				embeddings = embeddings / np.linalg.norm(embeddings, axis=1).reshape(-1, 1) # normalize
@@ -143,9 +147,12 @@ class FaceRecognizer(object):
 				img_dir = os.path.join(idx, 'imgs')
 				masked_dir = os.path.join(idx, 'masked')
 				self._register_with_mask(name, idx, img_dir, masked_dir)
+
+				time.sleep(2)
 				embeddings_masked = np.load(npy_masked_path)
 
 			labels = np.full(embeddings.shape[0], label)
+			labels_masked = np.full(embeddings_masked.shape[0], label)
 
 			if(len(self.embeddings) == 0):
 				self.embeddings = embeddings
@@ -159,7 +166,7 @@ class FaceRecognizer(object):
 				self.embeddings_masked = np.concatenate((self.embeddings_masked, embeddings_masked))
 
 			self.labels = np.concatenate((self.labels, labels))
-			self.labels_masked = np.concatenate((self.labels_masked, labels))
+			self.labels_masked = np.concatenate((self.labels_masked, labels_masked))
 
 		if(len(np.unique(self.labels)) >= 2):
 			self.sigmas = get_threshold(self.embeddings, self.labels)
