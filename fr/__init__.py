@@ -111,8 +111,40 @@ class FaceRecognizer(object):
 			npy_path = os.path.join(idx, '%s.npy' % label)
 			npy_masked_path = os.path.join(idx, '%s_masked.npy' % label)
 
-			embeddings = np.load(npy_path)
-			embeddings_masked = np.load(npy_masked_path)
+			# If regular face embeddings file exists
+			if(os.path.exists(npy_path)):
+				embeddings = np.load(npy_path)
+			else: # if not exists, create embeddings file from images folder
+				img_dir = os.path.join(idx, 'imgs')
+				img_paths = glob.glob(os.path.join(img_dir, '*.jpg'))
+				face_imgs = []
+
+				print(f'Embedding not created for {idx}, creating ... ')
+				for img_path in img_paths:
+					print(f'{img_path} processed ... ')
+					faces, locations = detect_and_align(cv2.imread(img_path))
+					for face, location in zip(faces, locations):
+						face = self._face_preprocessing(face)
+						face_imgs.append(face)
+
+				embeddings = self.model.predict(np.array(face_imgs))
+				embeddings = embeddings / np.linalg.norm(embeddings, axis=1).reshape(-1, 1) # normalize
+
+				with open(os.path.join(idx, npy_path), 'wb') as f:
+					np.save(f, embeddings)
+					print(f'[INFO] Saved normalized embeddings to {npy_path}')
+
+
+			if(os.path.exists(npy_masked_path)):
+				embeddings_masked = np.load(npy_masked_path)
+			else: 
+				print(idx, 'Masking ... ')
+				name = idx.split('/')[-1]
+				img_dir = os.path.join(idx, 'imgs')
+				masked_dir = os.path.join(idx, 'masked')
+				self._register_with_mask(name, idx, img_dir, masked_dir)
+				embeddings_masked = np.load(npy_masked_path)
+
 			labels = np.full(embeddings.shape[0], label)
 
 			if(len(self.embeddings) == 0):
@@ -134,6 +166,14 @@ class FaceRecognizer(object):
 
 		if(len(np.unique(self.labels_masked)) >= 2):
 			self.sigmas_masked = get_threshold(self.embeddings_masked, self.labels_masked)
+
+		if(len(self.clf.model.classes_) != len(np.unique(self.labels))):
+			print('[INFO] Retraining classifier for normal faces ... ')
+			self.clf._train(self.embeddings, self.labels)
+
+		if(len(self.clf_mask.model.classes_) != len(np.unique(self.labels_masked))):
+			print('[INFO] Retraining classifier for masked faces ... ')
+			self.clf_mask._train(self.embeddings_masked, self.labels_masked)
 
 	def _to_tflite(self, model):
 		model_path = os.path.join(self.tflite_path, "1")
